@@ -30,7 +30,8 @@ flags.DEFINE_string('echo', None, 'Text to echo.')
 
 
 def main(argv):
-  del argv  # Unused.
+  if len(argv) > 1:
+    raise app.UsageError('This command takes no arguments.')
 
   print('Running under Python {0[0]}.{0[1]}.{0[2]}'.format(sys.version_info),
         file=sys.stderr)
